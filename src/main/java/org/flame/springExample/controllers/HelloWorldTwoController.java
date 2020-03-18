@@ -6,16 +6,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-public class HelloWorldController {
+public class HelloWorldTwoController {
 
   private final GreetingService greetingService;
 
   @Autowired
-  public HelloWorldController(GreetingService greetingService) {
+  public HelloWorldTwoController(GreetingService greetingService) {
     this.greetingService = greetingService;
   }
 
-  @GetMapping("/hello-world")
+  @GetMapping("/hello-world-2")
   @ResponseBody
   public Greeting sayHello(@RequestParam(name="name", required=false, defaultValue="Stranger") String name) {
     return greetingService.makeGreeting(name);

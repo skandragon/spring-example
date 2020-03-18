@@ -1,9 +1,12 @@
 package org.flame.springExample.controllers;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.notNullValue;
 
 import java.net.URL;
 
+import org.flame.springExample.models.Greeting;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -26,13 +29,14 @@ public class HelloWorldControllerIntegrationTest {
 
   @BeforeEach
   public void setUp() throws Exception {
-    this.base = new URL("http://localhost:" + port + "/");
+    this.base = new URL("http://localhost:" + port + "/hello-world");
   }
 
   @Test
   public void getHello() throws Exception {
-    ResponseEntity<String> response = template.getForEntity(base.toString(),
-                                                            String.class);
-    assertThat(response.getBody().equals("Greetings from Spring Boot!"));
+    ResponseEntity<Greeting> response = template.getForEntity(base.toString(), Greeting.class);
+    assertThat(response.getStatusCode().value(), is(200));
+    assertThat(response.getBody(), is(notNullValue()));
+    assertThat(response.getBody().getContent(), is("Hello, Stranger!"));
   }
 }

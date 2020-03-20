@@ -16,7 +16,6 @@ public class HelloWorldTwoController {
   }
 
   @GetMapping("/hello-world-2")
-  @ResponseBody
   public Greeting sayHello(@RequestParam(name="name", required=false, defaultValue="Stranger") String name) {
     return greetingService.makeGreeting(name);
   }

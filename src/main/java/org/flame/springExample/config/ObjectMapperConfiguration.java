@@ -12,7 +12,8 @@ public class ObjectMapperConfiguration {
 
   @Bean
   public ObjectMapper yamlObjectMapper() {
-    ObjectMapper yamlObjectMapper = new ObjectMapper(new YAMLFactory()); //Enable or disable features return yamlObjectMapper;
+    ObjectMapper yamlObjectMapper = new ObjectMapper(new YAMLFactory());
+    //Enable or disable features return yamlObjectMapper;
     return yamlObjectMapper;
   }
 }

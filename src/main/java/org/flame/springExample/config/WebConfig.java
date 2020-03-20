@@ -15,7 +15,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import java.util.Arrays;
 import java.util.List;
 
-
 @EnableWebMvc
 @Configuration
 @ComponentScan({"org.flame.springExample"})

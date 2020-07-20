@@ -8,12 +8,12 @@ group = 'org.flame'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
+def profiles = 'environment,region,provider'
+def cwd = System.getProperty("user.dir")
+
 repositories {
 	mavenCentral()
 }
-
-def profiles = 'environment,region,provider'
-def cwd = System.getProperty("user.dir")
 
 bootRun {
 	args = [

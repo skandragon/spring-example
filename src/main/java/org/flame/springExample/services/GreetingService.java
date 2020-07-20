@@ -24,6 +24,10 @@ public class GreetingService {
   private final AtomicLong counter = new AtomicLong();
 
   public Greeting makeGreeting(String name) {
-    return new Greeting(counter.incrementAndGet() + idOffset, String.format(config.getTemplate(), name));
+    return new Greeting(counter.incrementAndGet() + idOffset,
+                        String.format(config.getTemplate(), name),
+                        config.getRegionName(),
+                        config.getEnvironmentName(),
+                        config.getProviderName());
   }
 }

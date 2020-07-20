@@ -13,9 +13,13 @@ repositories {
 }
 
 def profiles = 'environment,region,provider'
+def cwd = System.getProperty("user.dir")
 
 bootRun {
-	args = ["--spring.profiles.active=" + profiles]
+	args = [
+			"--spring.profiles.active=" + profiles,
+			"--spring.config.location=classpath:/,file://" + cwd + "/extra-properties/"
+	]
 }
 
 dependencies {
